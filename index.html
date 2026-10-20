@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>mgren · practice</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div><span class="logo">mgren</span><span class="sub">practice</span></div>
+    <button id="settingsBtn" aria-expanded="false">settings</button>
+  </header>
+
+  <section id="settings" hidden>
+    <label>font size
+      <select id="setFont">
+        <option value="18">small</option>
+        <option value="24">medium</option>
+        <option value="30">large</option>
+      </select>
+    </label>
+    <label>duration
+      <select id="setDuration">
+        <option value="15">15s</option>
+        <option value="30">30s</option>
+        <option value="60">60s</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="setSound"> sound</label>
+    <label><input type="checkbox" id="setPunct"> punctuation</label>
+    <label><input type="checkbox" id="setNums"> numbers</label>
+    <span id="swatches">accent
+      <button class="sw" data-accent="#E2B714" style="background:#E2B714" aria-label="yellow"></button>
+      <button class="sw" data-accent="#7A9E7E" style="background:#7A9E7E" aria-label="green"></button>
+      <button class="sw" data-accent="#6E8FB5" style="background:#6E8FB5" aria-label="blue"></button>
+      <button class="sw" data-accent="#B5738A" style="background:#B5738A" aria-label="rose"></button>
+    </span>
+  </section>
+
+  <nav class="controls">
+    <div class="grp">
+      <button data-duration="15">15</button>
+      <button data-duration="30">30</button>
+      <button data-duration="60">60</button>
+    </div>
+    <div class="grp">
+      <button data-mode="words">words</button>
+      <button data-mode="sentences">sentences</button>
+      <button data-mode="paragraphs">paragraphs</button>
+    </div>
+    <div class="grp">
+      <button data-toggle="punct">punctuation</button>
+      <button data-toggle="nums">numbers</button>
+    </div>
+    <div class="grp">
+      <button id="btnRestart">restart</button>
+      <button id="btnNew">new text</button>
+    </div>
+  </nav>
+
+  <div class="stats">
+    <span>time <b id="sTime" class="accent">30</b></span>
+    <span>wpm <b id="sWpm">0</b></span>
+    <span>acc <b id="sAcc">100%</b></span>
+    <span>chars <b id="sChars">0</b></span>
+    <span>raw <b id="sRaw">0</b></span>
+  </div>
+
+  <main id="typing" class="blur">
+    <div id="view"><div id="words"></div></div>
+    <div id="focusMsg">click here or start typing</div>
+    <textarea id="input" autocomplete="off" autocorrect="off" autocapitalize="off"
+              spellcheck="false" aria-label="typing input"></textarea>
+  </main>
+
+  <section id="results" hidden>
+    <div class="big"><span id="rWpm">0</span><small> wpm</small></div>
+    <div class="rgrid">
+      <div>accuracy<b id="rAcc"></b></div>
+      <div>raw<b id="rRaw"></b></div>
+      <div>errors<b id="rErr"></b></div>
+      <div>characters<b id="rChars"></b></div>
+      <div>time<b id="rTime"></b></div>
+    </div>
+    <button id="btnNext">next test</button>
+    <button id="btnRepeat">repeat</button>
+  </section>
+
+  <p class="keys">tab restart · esc new text · enter next test</p>
+
+  <section id="progress">
+    <h2>progress</h2>
+    <div class="pgrid">
+      <div>best wpm<b id="pBest">–</b></div>
+      <div>average<b id="pAvg">–</b></div>
+      <div>best accuracy<b id="pAcc">–</b></div>
+      <div>tests<b id="pCount">0</b></div>
+    </div>
+    <ul id="recent"></ul>
+    <button id="btnReset">reset statistics</button>
+  </section>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
